@@ -104,6 +104,10 @@ func main() {
 	show.PNG(c2.Image(), "", "")
 }
 
+/*{md}
+The code below is helper code only.
+*/
+
 func sliceToXYs(s []float64) plotter.XYs {
 	xy := make(plotter.XYs, len(s))
 	for i, v := range s {

@@ -104,6 +104,10 @@ func main() {
 	*/
 }
 
+/*{md}
+The code below is helper code only.
+*/
+
 func slicesToXYs(x, y []float64) plotter.XYs {
 	if len(x) != len(y) {
 		log.Fatalf("mismatched data lengths %d != %d", len(x), len(y))
