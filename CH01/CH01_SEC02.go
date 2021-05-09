@@ -6,15 +6,14 @@ package main
 import (
 	"fmt"
 	"image"
+	"image/color"
+	_ "image/jpeg"
 	"log"
 	"math"
 	"os"
 	"path/filepath"
 
 	drawimg "golang.org/x/image/draw"
-
-	"image/color"
-	_ "image/jpeg"
 
 	"github.com/kortschak/gd/show"
 

@@ -8,15 +8,14 @@ package main
 import (
 	"fmt"
 	"image"
+	"image/color"
+	_ "image/jpeg"
 	"log"
 	"math"
 	"os"
 	"path/filepath"
 
 	drawimg "golang.org/x/image/draw"
-
-	"image/color"
-	_ "image/jpeg"
 
 	"github.com/kortschak/gd/show"
 
@@ -42,7 +41,7 @@ func main() {
 
 	show.JPEG(scaled(img, 600), nil, "", "Original image")
 ```
-> ![](CH01_SEC02_41.jpeg "Original image")
+> ![](CH01_SEC02_40.jpeg "Original image")
 ```
 
 	rect := img.Bounds()
@@ -97,11 +96,11 @@ func main() {
 
 		show.JPEG(scaled(img, 600), nil, "", fmt.Sprintf("r = %d", r))
 ```
-> ![](CH01_SEC02_77_0.jpeg "r = 5")
+> ![](CH01_SEC02_76_0.jpeg "r = 5")
 
-> ![](CH01_SEC02_77_1.jpeg "r = 20")
+> ![](CH01_SEC02_76_1.jpeg "r = 20")
 
-> ![](CH01_SEC02_77_2.jpeg "r = 100")
+> ![](CH01_SEC02_76_2.jpeg "r = 100")
 ```
 	}
 
@@ -118,7 +117,7 @@ func main() {
 	p1.Draw(draw.New(c1))
 	show.PNG(c1.Image(), "", "")
 ```
-> ![](CH01_SEC02_91.png)
+> ![](CH01_SEC02_90.png)
 ```
 
 	p2 := plot.New()
@@ -134,7 +133,7 @@ func main() {
 	p2.Draw(draw.New(c2))
 	show.PNG(c2.Image(), "", "")
 ```
-> ![](CH01_SEC02_104.png)
+> ![](CH01_SEC02_103.png)
 ```
 }
 
