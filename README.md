@@ -1,4 +1,4 @@
-# Data_Driven_Science_Gonum_Demos
+# Data_Driven_Science_Go_Demos
 
 <img src="http://www.databookuw.com/files/stacks-image-5bffc53-882x1200.png" alt="Data Driven Book Cover" width="200"/>
 
