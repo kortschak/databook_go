@@ -141,7 +141,7 @@ func main() {
 	canvases := plot.Align(p2, draw.Tiles{Rows: 2, Cols: 1}, draw.New(img))
 	for i, c := range canvases {
 		p2[i][0].Y.Max = 1
-		p2[i][0].Y.Scale = plot.LogScale{}
+		p2[i][0].Y.Scale = logScale{}
 		p2[i][0].Draw(c[0])
 	}
 
@@ -180,17 +180,26 @@ func slicesToXYs(x, y []float64) plotter.XYs {
 	}
 	xy := make(plotter.XYs, len(x))
 	for i := range x {
-		xy[i] = plotter.XY{X: x[i], Y: math.Max(y[i], 1e-16)}
+		xy[i] = plotter.XY{X: x[i], Y: y[i]}
 	}
 	return xy
+}
+
+type logScale struct{}
+
+func (logScale) Normalize(min, max, x float64) float64 {
+	min = math.Max(min, 1e-16)
+	max = math.Max(max, 1e-16)
+	x = math.Max(x, 1e-16)
+	logMin := math.Log(min)
+	return (math.Log(x) - logMin) / (math.Log(max) - logMin)
 }
 
 type logTicks struct{ powers int }
 
 func (t logTicks) Ticks(min, max float64) []plot.Tick {
-	if min <= 0 || max <= 0 {
-		panic("Values must be greater than 0 for a log scale.")
-	}
+	min = math.Max(min, 1e-16)
+	max = math.Max(max, 1e-16)
 	if t.powers < 1 {
 		t.powers = 1
 	}
